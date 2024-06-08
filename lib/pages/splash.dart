@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:buburger/pages/login.dart';
+import 'package:buburger/pages/auth/login.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
 

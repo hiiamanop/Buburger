@@ -1,4 +1,4 @@
-import 'package:buburger/pages/register.dart';
+import 'package:buburger/pages/auth/register.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
 
