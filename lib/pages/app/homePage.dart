@@ -5,14 +5,14 @@ import 'package:buburger/pages/app/profilePage.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _HomePageState extends State<HomePage> {
   // siapkan variabel untuk nilai awal tab bottom navigation barnya
   int selectedIndex = 0;
 

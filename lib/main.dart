@@ -1,3 +1,4 @@
+import 'package:buburger/pages/app/homePage.dart';
 import 'package:buburger/pages/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(child: SplashPage()),
+      home: SafeArea(child: HomePage()),
     );
   }
 }

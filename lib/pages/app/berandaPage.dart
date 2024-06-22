@@ -50,7 +50,7 @@ class _BerandaPageState extends State<BerandaPage> {
             Stack(
               children: [
                 Image.asset(
-                  "assets/Rectangle6.png",
+                  "assets/Rectangle 6.png",
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),
@@ -132,12 +132,12 @@ class _BerandaPageState extends State<BerandaPage> {
                   ProductWidget(
                     nama: "Beef Burger",
                     imageUrl: "assets/burger1.png",
-                    harga: "IDR 20.000",
+                    harga: "20000",
                   ),
                   ProductWidget(
                     nama: "Steak Burger",
                     imageUrl: "assets/burger2.png",
-                    harga: "IDR 15.000",
+                    harga: "15000",
                   ),
                   ProductWidget(
                     nama: "Union Burger",
