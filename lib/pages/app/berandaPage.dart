@@ -142,12 +142,12 @@ class _BerandaPageState extends State<BerandaPage> {
                   ProductWidget(
                     nama: "Union Burger",
                     imageUrl: "assets/burger3.png",
-                    harga: "IDR 10.000",
+                    harga: "10.000",
                   ),
                   ProductWidget(
                     nama: "Regular Burger",
                     imageUrl: "assets/burger4.png",
-                    harga: "IDR 5.000",
+                    harga: "5.000",
                   ),
                 ],
               ),

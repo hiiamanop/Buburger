@@ -1,3 +1,4 @@
+import 'package:buburger/config/config.dart';
 import 'package:buburger/pages/app/berandaPage.dart';
 import 'package:buburger/pages/app/prosesPage.dart';
 import 'package:buburger/themes/themes.dart';
@@ -80,7 +81,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           blackTextStyle.copyWith(fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      widget.harga,
+                      Config.convertToIDR(int.parse(widget.harga), 0),
                       style: greyTextStyle,
                     ),
                     Text(
@@ -88,7 +89,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       style: greyTextStyle,
                     ),
                     Text(
-                      "Total Harga: ${totalHarga}",
+                      "Total Harga:" +
+                          Config.convertToIDR(
+                              int.parse(totalBiaya.toString()), 0),
                       style: greyTextStyle,
                     ),
                   ],
@@ -202,7 +205,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         style: greyTextStyle,
                       ),
                       Text(
-                        totalHarga.toString(),
+                        Config.convertToIDR(int.parse(totalHarga.toString()),0),
                         style: secondaryTextStyle,
                       ),
                     ],
@@ -215,7 +218,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         style: greyTextStyle,
                       ),
                       Text(
-                        ongkir.toString(),
+                        Config.convertToIDR(int.parse(ongkir.toString()),0),
                         style: secondaryTextStyle,
                       ),
                     ],
@@ -248,7 +251,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ))
         ],
       ),
-
       bottomNavigationBar: Container(
         width: double.infinity,
         height: 80,
@@ -260,10 +262,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
             child: TextButton(
               style: TextButton.styleFrom(backgroundColor: primaryColor),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ProsesPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProsesPage()));
               },
               child: Padding(
                 padding: const EdgeInsets.only(

@@ -1,3 +1,4 @@
+import 'package:buburger/config/config.dart';
 import 'package:buburger/pages/app/productDetailPage.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class ProductWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 13),
-              child: Text(harga, style: greyTextStyle),
+              child: Text(Config.convertToIDR(int.parse(harga),0) ,style: greyTextStyle),
             ),
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:buburger/config/config.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class _CartWidgetState extends State<CartWidget> {
                 ),
               ),
               Text(
-                widget.harga,
+                Config.convertToIDR(int.parse(widget.harga),0),
                 style: greyTextStyle,
               ),
               Row(

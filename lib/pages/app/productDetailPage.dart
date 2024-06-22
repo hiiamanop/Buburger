@@ -1,3 +1,4 @@
+import 'package:buburger/config/config.dart';
 import 'package:buburger/pages/app/pesanSekarangPage.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       ),
                     ),
                     Text(
-                      widget.harga,
+                      Config.convertToIDR(int.parse(widget.harga),0),
                       style: greyTextStyle.copyWith(
                         fontWeight: FontWeight.w400,
                       ),

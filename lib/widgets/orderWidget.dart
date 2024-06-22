@@ -1,3 +1,4 @@
+import 'package:buburger/config/config.dart';
 import 'package:buburger/pages/app/orderDetailPage.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class OrderWidget extends StatelessWidget {
                 Text(nama, style: blackTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
                 ), ),
-                Text(harga, style: greyTextStyle, ),
+                Text(Config.convertToIDR(int.parse(harga),0), style: greyTextStyle, ),
                 Text("Qty : ${qty}", style: greyTextStyle, ),
                 Text(status, style: status == "Diproses" ?  primaryTextStyle.copyWith(
                   fontWeight: FontWeight.w600,

@@ -33,19 +33,19 @@ class _KeranjangPageState extends State<KeranjangPage> {
             // widget cart
             CartWidget(
               nama: "Beef Burger",
-              harga: "IDR 20.000",
+              harga: "20.000",
               imageUrl: "assets/burger1.png",
               qty: "1",
             ),
             CartWidget(
               nama: "Onion Burger",
-              harga: "IDR 23.000",
+              harga: "23.000",
               imageUrl: "assets/burger3.png",
               qty: "1",
             ),
             CartWidget(
               nama: "Steak Burger",
-              harga: "IDR 20.000",
+              harga: "20.000",
               imageUrl: "assets/burger2.png",
               qty: "1",
             ),
