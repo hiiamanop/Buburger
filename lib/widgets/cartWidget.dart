@@ -1,12 +1,13 @@
 import 'package:buburger/config/config.dart';
+import 'package:buburger/models/Cart_model.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class CartWidget extends StatefulWidget {
-  CartWidget({super.key, required this.nama, required this.harga, required this.qty, required this.imageUrl});
+  CartWidget({super.key, required this.dataCart, });
 
   // variabel utk menerima isian dari si pemanggil widget ini
-  String nama, harga, qty, imageUrl;
+  final CartModel dataCart;
 
   @override
   State<CartWidget> createState() => _CartWidgetState();
@@ -25,8 +26,8 @@ class _CartWidgetState extends State<CartWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset(
-           widget.imageUrl,
+          Image.network(
+           widget.dataCart.gambar,
             width: 150,
             height: 150,
           ),
@@ -37,13 +38,13 @@ class _CartWidgetState extends State<CartWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.nama,
+                widget.dataCart.namaProduct,
                 style: blackTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
-                Config.convertToIDR(int.parse(widget.harga),0),
+                Config.convertToIDR(int.parse(widget.dataCart.totalharga),0),
                 style: greyTextStyle,
               ),
               Row(
@@ -57,7 +58,7 @@ class _CartWidgetState extends State<CartWidget> {
                     width: 15,
                   ),
                   Text(
-                    widget.qty,
+                    widget.dataCart.jumlah,
                     style: blackTextStyle.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,

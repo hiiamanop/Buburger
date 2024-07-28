@@ -1,5 +1,8 @@
+import 'package:buburger/models/Cart_model.dart';
+import 'package:buburger/services/Cart_Services.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:buburger/widgets/cartWidget.dart';
+
 import 'package:flutter/material.dart';
 
 class KeranjangPage extends StatefulWidget {
@@ -31,24 +34,35 @@ class _KeranjangPageState extends State<KeranjangPage> {
             ),
 
             // widget cart
-            CartWidget(
-              nama: "Beef Burger",
-              harga: "20.000",
-              imageUrl: "assets/burger1.png",
-              qty: "1",
-            ),
-            CartWidget(
-              nama: "Onion Burger",
-              harga: "23.000",
-              imageUrl: "assets/burger3.png",
-              qty: "1",
-            ),
-            CartWidget(
-              nama: "Steak Burger",
-              harga: "20.000",
-              imageUrl: "assets/burger2.png",
-              qty: "1",
-            ),
+             FutureBuilder<List<CartModel>>(
+              future: CartServices.getCartList(),
+              builder: (context, snapshot) {
+
+                // saat loading...
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  // tampilkan widget CircularProgressIndicator
+                  return Container(
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ),
+                    ),
+                  );
+                } else if (snapshot.hasData) {
+                  return Column(
+                    children: [
+                       ...snapshot.data!.map((data) { 
+                          return CartWidget(dataCart: data,);
+                        })
+                    ],
+                  );
+                }
+
+                // defautl agar future builder bisa berfungsi
+                return Container();
+              },
+
+              ),
           ],
         ),
       ),

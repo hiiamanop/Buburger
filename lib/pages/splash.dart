@@ -22,14 +22,14 @@ class _SplashPageState extends State<SplashPage> {
 
   void startTimer() {
     Timer(const Duration(seconds: 3), () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => LoginPage()),
-      // );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
 
-      SpUtil.getString('email_user') == ""
-          ? Get.off(LoginPage())
-          : Get.off(HomePage());
+      // SpUtil.getString('email_user') == ""
+      //     ? Get.off(LoginPage())
+      //     : Get.off(HomePage());
     });
   }
 

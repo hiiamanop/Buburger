@@ -2,10 +2,10 @@ import 'package:intl/intl.dart';
 
 class Config {
   // sediakan variable penampung alamat url web services
-  static String urlAPI = "http://syntop.airportslab.com/api";
+  static String urlAPI = "https://syntop.poltekbangplg.ac.id/api";
 
   // sediakan variable penampung alamat url main websites (digunakan untuk ambil path file/gambar dr backend)
-  static String urlMain = "http://syntop.airportslab.com/";
+  static String urlMain = "https://syntop.poltekbangplg.ac.id/";
 
   // variable endpoint yang akan dipakai
 
@@ -22,7 +22,7 @@ class Config {
 
   // keranjang
   String urlKeranjangPost = "$urlAPI/keranjang-post";
-  String urlKeranjangList = "$urlAPI/keranjang-list";
+  String urlKeranjangList = "$urlAPI/keranjang-list?user_id=s";
   String urlKeranjangDelete = "$urlAPI/keranjang-delete";
 
   // checkout
