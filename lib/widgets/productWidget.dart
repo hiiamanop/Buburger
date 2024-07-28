@@ -1,4 +1,5 @@
 import 'package:buburger/config/config.dart';
+import 'package:buburger/models/Product_model.dart';
 import 'package:buburger/pages/app/productDetailPage.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,11 @@ import 'package:flutter/material.dart';
 class ProductWidget extends StatelessWidget {
   ProductWidget(
       {super.key,
-      required this.nama,
-      required this.imageUrl,
-      required this.harga});
+      required this.dataProduct,
+      });
 
   // buat variabel untuk menerima data
-  String nama, imageUrl, harga;
+  final ProductModel dataProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,7 @@ class ProductWidget extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (builder) => ProductDetail(
-                      nama: nama,
-                      imageUrl: imageUrl,
-                      harga: harga,
+                      dataProduct: dataProduct,
                     )));
       },
       child: Container(
@@ -34,22 +32,29 @@ class ProductWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              imageUrl,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 13),
-              child: Text(
-                nama,
-                style: blackTextStyle.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+            Container(
+              width: double.infinity,
+              child: Image.network(
+                dataProduct.gambar,
+                width: 120,
+                height: 120,
+                fit: BoxFit.cover,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 13),
-              child: Text(Config.convertToIDR(int.parse(harga),0) ,style: greyTextStyle),
+              child: Text(
+                dataProduct.namaProduct,
+                style: blackTextStyle.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ), 
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 13),
+              child: Text(Config.convertToIDR(int.parse(dataProduct.harga),0) ,style: greyTextStyle),
             ),
           ],
         ),

@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'package:buburger/pages/app/homePage.dart';
 import 'package:buburger/pages/auth/login.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -19,10 +22,14 @@ class _SplashPageState extends State<SplashPage> {
 
   void startTimer() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => LoginPage()),
+      // );
+
+      SpUtil.getString('email_user') == ""
+          ? Get.off(LoginPage())
+          : Get.off(HomePage());
     });
   }
 
@@ -82,7 +89,6 @@ class _SplashPageState extends State<SplashPage> {
               ],
             ),
           ),
-          
           Image.asset(
             "assets/img-splash.png",
             width: double.infinity,

@@ -1,12 +1,17 @@
+import 'package:buburger/controllers/auth_controller.dart';
 import 'package:buburger/pages/auth/login.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final authC = Get.put(AuthController());
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: bgColor,
@@ -61,6 +66,7 @@ class RegisterPage extends StatelessWidget {
                   ),
 
                   TextFormField(
+                    controller: authC.name,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -88,6 +94,7 @@ class RegisterPage extends StatelessWidget {
                   ),
 
                   TextFormField(
+                    controller: authC.email,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -117,6 +124,7 @@ class RegisterPage extends StatelessWidget {
                   ),
 
                   TextFormField(
+                    controller: authC.password,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
                             onPressed: null, icon: Icon(Icons.visibility)),
@@ -147,6 +155,7 @@ class RegisterPage extends StatelessWidget {
                   ),
 
                   TextFormField(
+                    controller: authC.telepon,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -172,7 +181,9 @@ class RegisterPage extends StatelessWidget {
                         style: TextButton.styleFrom(
                           backgroundColor: primaryColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          authC.register();
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

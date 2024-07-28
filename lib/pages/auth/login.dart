@@ -1,12 +1,18 @@
+import 'package:buburger/controllers/auth_controller.dart';
 import 'package:buburger/pages/auth/register.dart';
 import 'package:buburger/themes/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    // buat variable untuk memanggil auth_contorller yang sudah dibuat
+    final authC = Get.put(AuthController());
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: bgColor,
@@ -59,6 +65,7 @@ class LoginPage extends StatelessWidget {
                     height: 10,
                   ),
                   TextFormField(
+                    controller: authC.email,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -86,6 +93,7 @@ class LoginPage extends StatelessWidget {
                     height: 10,
                   ),
                   TextFormField(
+                    controller: authC.password,
                     obscureText: true,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
@@ -127,7 +135,9 @@ class LoginPage extends StatelessWidget {
                         style: TextButton.styleFrom(
                           backgroundColor: primaryColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          authC.login();
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

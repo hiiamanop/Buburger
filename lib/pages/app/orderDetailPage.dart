@@ -24,7 +24,7 @@ class OrderDetailPage extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Lacak Pesanan",
-          style: blackTextStyle.copyWith(
+          style: blackTextStyle.copyWith(   
             fontWeight: FontWeight.w600,
           ),
         ),

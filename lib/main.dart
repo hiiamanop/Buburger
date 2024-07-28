@@ -1,8 +1,11 @@
-import 'package:buburger/pages/app/homePage.dart';
 import 'package:buburger/pages/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SpUtil.getInstance();
   runApp(const MyApp());
 }
 
@@ -11,8 +14,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(child: HomePage()),
+    return GetMaterialApp(
+      home: SafeArea(child: SplashPage()),
     );
   }
 }

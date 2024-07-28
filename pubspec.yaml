@@ -38,6 +38,16 @@ dependencies:
   google_fonts: ^4.0.4
   # untuk format currency
   intl: ^0.19.0
+  # untuk koneksi ke web service
+  http: ^0.13.4
+  # untuk menyimpan data di cache hape
+  sp_util: ^2.0.3
+  # untuk upload gambar
+  image_picker: ^0.8.4+11
+  # untuk state management
+  get: ^4.6.5
+  # untuk membaca format html
+  flutter_widget_from_html: ^0.8.5
 
 dev_dependencies:
   flutter_test:
